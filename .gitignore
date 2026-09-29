@@ -1,0 +1,6 @@
+target/
+.idea/
+*.iml
+out/
+.kotlin
+.DS_Store
