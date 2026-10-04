@@ -110,4 +110,50 @@ public class RadioTest {
 
         assertEquals(0, radio.getCurrentVolume());
     }
+
+    @Test
+    void shouldCreateRadioWithTenStationsByDefault() {
+        Radio radio = new Radio();
+
+        radio.setCurrentStation(9);
+
+        assertEquals(9, radio.getCurrentStation());
+    }
+
+    @Test
+    void shouldCreateRadioWithCustomStationCount() {
+        Radio radio = new Radio(30);
+
+        radio.setCurrentStation(29);
+
+        assertEquals(29, radio.getCurrentStation());
+    }
+
+    @Test
+    void shouldNotSetStationEqualToStationCount() {
+        Radio radio = new Radio(30);
+
+        radio.setCurrentStation(30);
+
+        assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
+    void shouldMoveFromLastCustomStationToZero() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(29);
+
+        radio.next();
+
+        assertEquals(0, radio.getCurrentStation());
+    }
+
+    @Test
+    void shouldMoveFromZeroToLastCustomStation() {
+        Radio radio = new Radio(30);
+
+        radio.prev();
+
+        assertEquals(29, radio.getCurrentStation());
+    }
 }
