@@ -1,4 +1,4 @@
-public class Radio {
+// Radio supports a configurable number of stations.public class Radio {
     private int currentStation;
     private int stationCount;
     private int currentVolume;
